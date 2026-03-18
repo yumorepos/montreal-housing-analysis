@@ -93,10 +93,15 @@ def generate_rental_data(n_per_combo: int = 35) -> pd.DataFrame:
     """
     rows = []
     for year in range(2019, 2026):
+        if not 2019 <= year <= 2025:
+            print(f"Warning: Invalid year {year}. Skipping.")
+            continue
         # Cumulative rent multiplier relative to 2019 base
         cumulative = 1.0
         for y in range(2019, year + 1):
             cumulative *= (1 + ANNUAL_INCREASES.get(y, 0.03))
+        if y not in ANNUAL_INCREASES:
+            print(f"Warning: Missing ANNUAL_INCREASES for year {y}")
 
         for borough in BOROUGHS:
             for unit_type, base in BASE_RENT.items():
@@ -163,6 +168,9 @@ def generate_sales_data(n_per_combo: int = 22) -> pd.DataFrame:
 
     rows = []
     for year in range(2019, 2026):
+        if not 2019 <= year <= 2025:
+            print(f"Warning: Invalid year {year}. Skipping.")
+            continue
         cumulative = 1.0
         for y in range(2019, year + 1):
             cumulative *= (1 + ANNUAL_PRICE_GROWTH.get(y, 0.03))
