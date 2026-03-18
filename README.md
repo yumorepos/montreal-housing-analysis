@@ -1,5 +1,8 @@
 # 🏠 Montreal Housing Market Analysis
 
+[![CI](https://github.com/yumorepos/montreal-housing-analysis/actions/workflows/ci.yml/badge.svg)](https://github.com/yumorepos/montreal-housing-analysis/actions/workflows/ci.yml)
+
+
 **A data analysis project exploring rental trends, affordability, and sales patterns across Montreal boroughs (2020–2025).**
 
 [![Python 3.12+](https://img.shields.io/badge/Python-3.12+-3776AB?logo=python&logoColor=white)](https://www.python.org)
